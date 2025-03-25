@@ -46,7 +46,7 @@ def generate_page(from_path, template_path, dest_path, base_path):
         base_path = base_path + "/"
 
     # Replace placeholders in template
-    full_html = template_content.replace('{{ Title }}', title).replace('{{ Content }}', html_content).replace('ref="/', f'href="{base_path}').replace('src="/', f'src="{base_path}"')
+    full_html = template_content.replace('{{ Title }}', title).replace('{{ Content }}', html_content).replace('href="/', f'href="{base_path}').replace('src="/', f'src="{base_path}"')
 
     # Ensure destination directory exists
     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
