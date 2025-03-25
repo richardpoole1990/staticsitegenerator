@@ -1,11 +1,15 @@
 import os
 import shutil
+import sys
+
 from utilities import check_dirs, copy_files
 from page_generator import generate_pages_recursive
 
 def main():
     source = "static"
     destination = "public"
+
+    base_path = sys.argv[1] if len(sys.argv) > 1 else "/"
 
     # 1. Delete everything in `public`
     if os.path.exists(destination):
@@ -29,7 +33,8 @@ def main():
     generate_pages_recursive(
         dir_path_content="content",
         template_path="template.html",
-        dest_dir_path="public"
+        dest_dir_path="docs",
+        base_path=base_path
     )
 
 if __name__ == "__main__":
